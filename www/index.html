@@ -10,22 +10,25 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="keys.js"></script>
 	<script>
+    //NCMBアクセスの準備
 		var ncmb = new NCMB(appKey, clientKey);
-    var TestClass = ncmb.DataStore("RegisterTest2");
-    var testRecord = new TestClass();
-    testRecord.set("message2", "hello, world");
-    testRecord.save()
-      .then(function(m){
-        alert("success:" + JSON.stringify(m));
-      })
-      .catch(function(m){
-        alert("fail:" + JSON.stringify(m));
-      });
+    //利用するデータベースを指定(存在しなければ生成)
+    var iae = ncmb.DataStore("income and expenditure");
+    
 	</script>
 </head>
 
 <body>
-	<br /> This is a template for Monaca app.
+  <h1>収支アプリ</h1>
+  <div>
+    <label for = "object"> 物:</label>
+    <input id="object" type="text" object="Hello, mBaaS!">
+    <br>
+    <label for = "price">金額:</label>
+    <input id="price" type="number"price>
+  </div>
+  <div id="button">
+    <button id = "btnA" class="btn" onclick="register()">登録</button>
 </body>
 
 </html>
